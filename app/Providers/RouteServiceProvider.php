@@ -8,8 +8,8 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 class RouteServiceProvider extends ServiceProvider
 {
 
-    protected $webNamespace = "App\Http\Controllers";
-    protected $apiNamespace = "App\Http\Controllers\Api";
+    protected $webNamespace   = "App\Http\Controllers";
+    protected $apiNamespace   = "App\Http\Controllers\Api";
     protected $adminNamespace = "App\Http\Controllers\Admin";
 
     public function boot()
@@ -29,22 +29,22 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware("web")
-            -> namespace($this->webNamespace)
+            -> namespace($this -> webNamespace)
             -> group(base_path("routes/web.php"));
     }
 
     protected function mapApiRoutes()
     {
         Route::prefix("api")
-            -> middleware("api")
-            -> namespace($this->apiNamespace)
+            -> middleware("api", "apikey")
+            -> namespace($this -> apiNamespace)
             -> group(base_path("routes/api.php"));
     }
 
     protected function mapAdminRoutes() {
         Route::prefix("admin")
             -> middleware("web")
-            -> namespace($this->adminNamespace)
+            -> namespace($this -> adminNamespace)
             -> group(base_path("routes/admin.php"));
     }
 }

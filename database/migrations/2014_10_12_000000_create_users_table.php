@@ -17,13 +17,10 @@ class CreateUsersTable extends Migration
             $table -> increments("id");
             $table -> string("name");
             $table -> string("email") -> unique();
-            $table -> boolean("activated");
-            $table -> string("phone");
-            $table -> boolean("phone_confirmed");
-            $table -> string("api_token");
-            $table -> string("device_token");
             $table -> string("password");
-            $table -> rememberToken();
+            $table -> boolean("activated") -> default(0);
+            $table -> string("api_token") -> nullable();
+            $table -> string("device_token") -> nullable();
             $table -> timestamps();
             $table -> softDeletes();
         });

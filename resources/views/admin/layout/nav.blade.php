@@ -1,52 +1,99 @@
 <ul id="slide-out" class="sidenav sidenav-fixed">
-  <li>
-    <div>
-      <div class="nav-logo">
-        <img class="responsive-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Firefox_Logo%2C_2017.svg/1200px-Firefox_Logo%2C_2017.svg.png" />
+  <li
+    style="line-height : normal; padding : 10px 18px"
+  >
+    <div class="flex align-center">
+      <div style="flex : 1 0 20%">
+        <img class="responsive-img" src="{{ config('r9')['logo']['image'] }}" />
+      </div>
+      <div style="flex : 1 0 80%; margin-left : 20px">
+        <strong>{{ config("r9")["logo"]["text"] }}</strong>
       </div>
     </div>
   </li>
+  <li class="divider"></li>
+  {{--
+  <li>
+    <div class="nav-logo">
+      <img class="responsive-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Firefox_Logo%2C_2017.svg/1200px-Firefox_Logo%2C_2017.svg.png" />
+    </div>
+  </li> --}}
   <li>
     <ul class="collapsible">
-      @foreach (config("admin-nav")["items"] as $item)
-        @if (!empty($item["submenu"]))
-          <li>
-            <div class="collapsible-header">
-              @if (!empty($item["icon"]))
-                <i class="material-icons">{{ $item["icon"] }}</i>
-              @endif
-              {{ $item["label"] }}
-            </div>
-            <div class="collapsible-body">
-              <ul>
-                @foreach ($item["submenu"] as $subItem)
-                  <li>
-                    <a href="{{ $subItem['route'] }}">
-                      @if (!empty($subItem["icon"]))
-                        <i class="material-icons">{{ $subItem["icon"] }}</i>
+      <li
+        @if (route(config("r9")["links"]["profile"]) === url() -> current())
+          class="active"
+        @endif
+      >
+        <a href="{{ route(config("r9")["links"]["profile"]) }}" class="waves-effect waves-{{ config("r9")["colors"]["primary-name"] }}">
+          <div class="flex space-between align-center">
+            <div>{{ auth("admin") -> user() -> name }}</div>
+            <i class="material-icons">settings</i>
+          </div>
+        </a>
+      </li>
+      <li class="divider no-margin"></li>
+      @foreach (config("r9")["items"] as $item)
+        @if (
+          (
+            array_key_exists("can", $item)
+            && array_key_exists("model", $item)
+          )
+            ? auth() -> guard("admin") -> user() -> can($item["can"], $item["model"])
+            : true
+        )
+          @if (!empty($item["submenu"]))
+            <li>
+              <div class="collapsible-header flex space-between align-center waves-effect waves-{{ config("r9")["colors"]["primary-name"] }}">
+                <div class="flex align-center">
+                  @if (!empty($item["icon"]))
+                    <i class="material-icons">{{ $item["icon"] }}</i>
+                  @endif
+                  <span>{{ $item["label"] }}</span>
+                </div>
+                <i class="material-icons">keyboard_arrow_down</i>
+              </div>
+              <div class="collapsible-body">
+                <ul>
+                  @foreach ($item["submenu"] as $subItem)
+                    <li
+                      @if (route($subItem["route"]) === url() -> current())
+                        class="active"
                       @endif
-                      {{ $subItem["label"] }}
-                    </a>
-                  </li>
-                @endforeach
-              </ul>
-            </div>
-          </li>
-        @else
-          <li
-            @if ($item["route"] === url() -> current())
-              class="active"
-            @endif
-          >
-            <a href="{{ $item['route'] }}">
-              @if (!empty($item["icon"]))
-                <i class="material-icons">{{ $item["icon"] }}</i>
+                    >
+                      <a href="{{ route($subItem["route"]) }}" class="waves-effect waves-{{ config("r9")["colors"]["primary-name"] }}">
+                        @if (!empty($subItem["icon"]))
+                          <i class="material-icons">{{ $subItem["icon"] }}</i>
+                        @endif
+                        {{ $subItem["label"] }}
+                      </a>
+                    </li>
+                  @endforeach
+                </ul>
+              </div>
+            </li>
+          @else
+            <li
+              @if (route($item["route"]) === url() -> current())
+                class="active"
               @endif
-              {{ $item["label"] }}
-            </a>
-          </li>
+            >
+              <a href="{{ route($item["route"]) }}" class="waves-effect waves-{{ config("r9")["colors"]["primary-name"] }}">
+                @if (!empty($item["icon"]))
+                  <i class="material-icons">{{ $item["icon"] }}</i>
+                @endif
+                <span>{{ $item["label"] }}</span>
+              </a>
+            </li>
+          @endif
         @endif
       @endforeach
+      <li>
+        <a href="{{ route(config("r9")["links"]["logout"]) }}" class="waves-effect waves-{{ config("r9")["colors"]["primary-name"] }}">
+          <i class="material-icons">power_settings_new</i>
+          <span>Logout</span>
+        </a>
+      </li>
     </ul>
   </li>
 </ul>

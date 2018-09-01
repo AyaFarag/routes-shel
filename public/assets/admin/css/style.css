@@ -1,24 +1,44 @@
+*::-webkit-scrollbar
+{
+  width            : 5px;
+  background-color : #FFF;
+}
+
+*::-webkit-scrollbar-thumb
+{
+  border-radius    : 10px;
+  background-color : #CCC;
+}
+
+h1, h2, h3, h4, h5 {
+  margin : 0;
+}
+
+.washed-out {
+  color : #222;
+}
+
 @font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(/assets/admin/fonts/material-icons.woff2) format('woff2');
+  font-family : "Material Icons";
+  font-style  : normal;
+  font-weight : 400;
+  src         : url(/assets/admin/fonts/material-icons.woff2) format("woff2");
 }
 
 .material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
+  font-family                   : "Material Icons";
+  font-weight                   : normal;
+  font-style                    : normal;
+  font-size                     : 24px;
+  line-height                   : 1;
+  letter-spacing                : normal;
+  text-transform                : none;
+  display                       : inline-block;
+  white-space                   : nowrap;
+  word-wrap                     : normal;
+  direction                     : ltr;
+  -webkit-font-feature-settings : "liga";
+  -webkit-font-smoothing        : antialiased;
 }
 
 
@@ -39,30 +59,214 @@
 *****************************************
 *****************************************/
 
-
-.nav-logo {
-  padding: 30px;
+.row {
+  margin : 0;
 }
 
+@media only screen and (max-width: 48em) {
+  .row.cards > div + div {
+    margin-top : 10px;
+  }
+}
+
+.divider.no-margin {
+  margin : 0;
+}
 
 nav.bar {
   padding : 0 15px;
 }
 
+nav .nav-wrapper {
+  padding : 0 30px;
+}
+
+.padded-container {
+  padding : 20px;
+}
+
+
+.main-section {
+  margin-left : 300px;
+}
+
 .sidenav .collapsible li > a {
   padding     : 0 16px;
   font-weight : normal;
-  color       : rgb(0, 0, 0);
+  font-size   : 15px;
+  color       : rgba(0,0,0,0.87);
 }
-.sidenav .collapsible li > a > i {
+.sidenav .collapsible > li > a > i {
   color        : rgb(0, 0, 0);
   margin-right : 1rem;
   width        : 2rem;
   text-align   : center;
 }
 
+.sidenav .collapsible li > a > i {
+  margin-right : 1rem;
+}
+
+.sidenav .collapsible .collapsible-body li.active > a > i {
+  color : #FFF;
+}
+
+.sidenav .collapsible .collapsible-body > ul > li:first-child {
+  box-shadow: inset 0 7px 15px -7px rgba(0, 0, 0, 0.2);
+}
+
+.sidenav .collapsible .collapsible-body > ul > li:last-child {
+  box-shadow: inset 0 -7px 15px -7px rgba(0, 0, 0, 0.2);
+}
+
+.sidenav {
+  user-select : none;
+}
+
+.sidenav-trigger {
+  position  : absolute;
+  top       : 18px;
+  left      : 20px;
+  z-index   : 99;
+}
+
+.sidenav-trigger i {
+  font-size : 28px;
+  color     : #FFF;
+}
+
+@media all and (max-width : 993px) {
+  .main-section {
+    margin-left : 0;
+  }
+
+  nav .nav-wrapper {
+    padding-left  : 65px;
+    padding-right : 5px;
+  }
+}
+
+.collapsible .collapsible-header > i {
+  margin-right : 0;
+  transition   : transform 300ms ease-in-out;
+}
+
+.collapsible li.active .collapsible-header > i {
+  transform : rotate(-180deg);
+}
+
+.collapsible li .collapsible-body > ul > li > a {
+  padding-left : 30px;
+}
 
 
+button.rounded {
+  padding       : 0;
+  width         : 36px;
+  border-radius : 50%;
+}
+
+button.rounded i {
+  margin : 0;
+}
+
+
+table tr td.action > * {
+  display : inline-block;
+}
+
+table tr td.action {
+  width : 48px;
+}
+
+table tr td.action.double {
+  width : calc(48px * 2);
+}
+
+table tr td.action.triple {
+  width : calc(48px * 3);
+}
+
+nav .navbar-search-container {
+  padding : 10px 0;
+  height  : 100%;
+}
+
+nav .navbar-search {
+  border-radius : 5px;
+  padding : 0 10px;
+}
+
+nav .navbar-search .prefix {
+  position : static;
+}
+
+nav .navbar-search button {
+  margin-right : 10px;
+  margin-top   : 2px;
+}
+
+nav .navbar-search i {
+  line-height  : normal;
+  height       : auto;
+  color        : #FFF;
+}
+
+nav .navbar-search input[type=text] {
+  color         : #FFF;
+  border-bottom : none;
+  height        : 100%;
+  margin        : 0;
+}
+
+
+nav .navbar-search input[type=text]:not(.browser-default):focus:not([readonly]) {
+  border-bottom : none;
+}
+
+
+.flot-chart .legend table {
+  display : inline-block;
+  width   : auto;
+}
+
+.flot-chart .legend table tr {
+  border : none;
+}
+
+.flot-chart .legend table .legendColorBox > div {
+  border : none!important;
+}
+
+.flot-chart .legend table .legendColorBox > div > div {
+  border-radius : 50%;
+}
+
+.flot-chart .legend {
+  margin-top : 20px;
+}
+
+.card.chart {
+  padding : 20px 20px 0;
+}
+
+
+
+
+.tap-target {
+  color : #FFF;
+}
+
+/* MOBILE */
+@media all and (max-width : 600px) {
+  .padded-container {
+    padding : 0;
+  }
+
+  nav .navbar-search-container {
+    padding : 5px 0;
+  }
+}
 
 /****************************************
 *****************************************
@@ -73,7 +277,86 @@ nav.bar {
 *****************************************/
 
 .helper-text.is-danger {
-  color : red;
+  color     : red;
+  font-size : 12px;
+}
+
+.card-content.no-padding {
+  padding : 0;
+}
+
+
+.row.no-margin {
+  margin : 0;
+}
+
+.text-danger {
+  color : #F00;
+}
+
+
+
+/****************************************
+*****************************************
+**
+**  RANDOM HELPERS
+**
+*****************************************
+*****************************************/
+
+.margin-top {
+  margin-top : 20px;
+}
+
+.margin-bottom {
+  margin-bottom : 20px;
+}
+
+.margin-right {
+  margin-right : 20px;
+}
+
+.margin-bottom.big {
+  margin-bottom : 40px;
+}
+
+.margin-top.big {
+  margin-top : 40px;
+}
+
+.vertical-margin {
+  margin : 20px 0;
+}
+
+
+
+.padding-bottom {
+  padding-bottom : 20px;
+}
+
+.vertical-padding {
+  padding : 20px 0;
+}
+
+.vertical-padding.big {
+  padding : 40px 0;
+}
+
+.vertical-padding.small {
+  padding : 10px 0;
+}
+
+.vertical-padding.tiny {
+  padding : 5px 0;
+}
+
+.text-centered {
+  text-align : center;
+}
+
+
+.inline-block {
+  display : inline-block;
 }
 
 /****************************************
@@ -105,4 +388,18 @@ nav.bar {
 
 .flex.justify-end {
   justify-content : flex-end;
+}
+
+.flex.space-between {
+  justify-content : space-between;
+}
+
+.flex.space-around {
+  justify-content : space-around;
+}
+
+.floating-action {
+  position : fixed;
+  bottom : 20px;
+  right : 20px;
 }

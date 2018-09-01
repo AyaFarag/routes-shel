@@ -13,9 +13,7 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\Event' => [
-            'App\Listeners\EventListener',
-        ],
+        "App\Events\PhoneActivationRequest" => ["App\Listeners\SendPhoneActivationCode"]
     ];
 
     /**
@@ -27,6 +25,6 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+
     }
 }
