@@ -71,6 +71,22 @@ Route::group([
     Route::get("/setting", "SettingController@edit") -> name("setting.edit");
     Route::put("/setting", "SettingController@update");
 
+    //===============================================================
+    //
+    // Countries
+    //
+    //===============================================================
+
+    Route::resource("/country", "CountryController@edit");
+    
+    //===============================================================
+    //
+    // Cities
+    //
+    //===============================================================
+
+    Route::resource("/city", "CityController@edit");
+
 
 
     //===============================================================
