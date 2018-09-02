@@ -42,6 +42,20 @@ return [
       "route" => "admin.setting.edit",
       "can"   => "update",
       "model" => \App\Models\Setting::class
+    ],
+    [
+      "label" => "Country",
+      "icon"  => "settings",
+      "route" => "admin.setting.edit",
+      "can"   => "update",
+      "model" => \App\Models\Counry::class
+    ],
+    [
+      "label" => "City",
+      "icon"  => "settings",
+      "route" => "admin.setting.edit",
+      "can"   => "update",
+      "model" => \App\Models\City::class
     ]
   ]
 ];
