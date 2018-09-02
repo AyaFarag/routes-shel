@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\City;
+use App\Models\Country;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CityRequest;
 
 class CityController extends Controller
@@ -15,8 +17,9 @@ class CityController extends Controller
      */
     public function index()
     {
-        $city = City::all();
-        return view('City.View');
+        $city = City::paginate();
+        
+        return view('Admin.city.index');
     }
 
     /**
@@ -26,7 +29,8 @@ class CityController extends Controller
      */
     public function create()
     {
-        return view('City.Create');
+        $country = Country::pluck('id','name')->get();
+        return view('Admin.city.Create', compact('city','country'));
     }
 
     /**
@@ -37,7 +41,7 @@ class CityController extends Controller
      */
     public function store(CityRequest $request)
     {
-        City::create($request->all);
+        City::create($request->all());
         return back();
     }
 
@@ -60,7 +64,7 @@ class CityController extends Controller
      */
     public function edit(City $city)
     {
-        return view('City.edit');
+        return view('Admin.city.edit', compact('city'));
     }
 
     /**
@@ -73,7 +77,7 @@ class CityController extends Controller
     public function update(Request $request, City $city)
     {
         $City->update($request->all());
-        return view('City.View');
+        return view('Admin.city.index');
     }
 
     /**
@@ -84,7 +88,7 @@ class CityController extends Controller
      */
     public function destroy(City $city)
     {
-        $City->destory();
+        $City->delete();
         return back();
     }
 }
