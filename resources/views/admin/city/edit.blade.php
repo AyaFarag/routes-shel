@@ -1,7 +1,7 @@
 @extends("admin.layout.app")
 
 @section("navbar")
-  <h4>Users</h4>
+  <h4>City</h4>
 @stop
 
 @section("content")
@@ -10,9 +10,9 @@
       <div class="card-content">
         @component("admin.components.form", [
           "method" => "put",
-          "action" => route("admin.user.update", $user -> id)
+          "action" => route("admin.city.update", $city -> id)
         ])
-          @include("admin.user.form")
+          @include("admin.city.form")
           @include("admin.components.button", [
             "icon"  => "replay",
             "label" => "update"

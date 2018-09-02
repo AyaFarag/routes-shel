@@ -1,10 +1,10 @@
 @extends("admin.layout.app")
 
 @section("navbar")
-  <h4>Users</h4>
+  <h4>Country</h4>
   @include("admin.components.navbar-search", [
-    "route"       => route("admin.user.index"),
-    "placeholder" => "Search by name/email"
+    "route"       => route("admin.city.index"),
+    "placeholder" => "Search by name"
   ])
 @stop
 
@@ -13,31 +13,31 @@
     <div class="card">
       <div class="card-content no-padding">
         @include("admin.components.crud-table", [
-          "baseRouteName" => "admin.user",
-          "notFound"      => "No users were found!",
-          "items"         => $users,
-          "model"         => \App\Models\User::class,
+          "baseRouteName" => "admin.city",
+          "notFound"      => "No city were found!",
+          "items"         => $city,
+          "model"         => \App\Models\City::class,
           "columns"       => [
             "name"  => ["label" => "Name"],
-            "email" => ["label" => "Email"]
+            
           ]
         ])
       </div>
     </div>
   </div>
-  @can("create", \App\Models\User::class)
+  @can("create", \App\Models\Country::class)
     @include("admin.components.floating-fab", [
-      "to"         => route("admin.user.create"),
-      "tooltip"    => "New User",
+      "to"         => route("admin.city.create"),
+      "tooltip"    => "New city",
       "attributes" => [
         "id" => "create-item"
       ]
     ])
     @include("admin.components.feature-discovery", [
       "target"  => "create-item",
-      "title"   => "Create a new user",
+      "title"   => "Create a new city",
       "color"   => "secondary",
-      "content" => "You can click on this floating fab to create a new user.<br /> You'll only see this message once!"
+      "content" => "You can click on this floating fab to create a new city.<br /> You'll only see this message once!"
     ])
   @endcan
 @stop
