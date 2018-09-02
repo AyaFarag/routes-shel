@@ -77,7 +77,7 @@ Route::group([
     //
     //===============================================================
 
-    Route::resource("/country", "CountryController@edit");
+    Route::resource("/country", "CountryController");
     
     //===============================================================
     //
@@ -85,7 +85,15 @@ Route::group([
     //
     //===============================================================
 
-    Route::resource("/city", "CityController@edit");
+    Route::resource("/city", "CityController");
+ 
+    //===============================================================
+    //
+    // Category
+    //
+    //===============================================================
+
+    Route::resource("/category", "CategoryController");
 
 
 
