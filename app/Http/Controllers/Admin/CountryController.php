@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Country;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CountryRequest;
+
 
 class CountryController extends Controller
 {
@@ -13,10 +15,11 @@ class CountryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $country = Country::all();
-        return view('Country.View');
+        $country = Country::paginate();
+        
+        return view('Admin.country.index', compact('country'));
     }
 
     /**
@@ -26,7 +29,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-        return view('Country.Create');
+        return view('Admin.country.Create');
     }
 
     /**
@@ -37,7 +40,7 @@ class CountryController extends Controller
      */
     public function store(CountryRequest $request)
     {
-        Country::create($request->all);
+        Country::create($request->all());
         return back();
     }
 
@@ -60,7 +63,7 @@ class CountryController extends Controller
      */
     public function edit(Country $country)
     {
-        return view('Country.edit');
+        return view('Admin.Country.edit', compact('country'));
     }
 
     /**
@@ -73,7 +76,7 @@ class CountryController extends Controller
     public function update(CountryRequest $request, Country $country)
     {
         $country->update($request->all());
-        return view('Country.View');
+        return view('Admin.Country.index', compact('country') );
     }
 
     /**
@@ -84,7 +87,7 @@ class CountryController extends Controller
      */
     public function destroy(Country $country)
     {
-        $country->destory();
+        $country->delete();
         return back();
     }
 }
