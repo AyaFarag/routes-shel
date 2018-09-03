@@ -21,6 +21,7 @@ return [
       "icon"  => "dashboard",
       "route" => "admin.dashboard"
     ],
+    /////////////////////////////////////////// Users ////////////////////////////////////////////////
     [
       "label" => "Users",
       "icon"  => "person",
@@ -28,6 +29,7 @@ return [
       "can"   => "view",
       "model" => \App\Models\User::class
     ],
+    /////////////////////////////////////////// Moderators ///////////////////////////////////////////
     [
       "label" => "Moderators",
       "icon"  => "security",
@@ -36,6 +38,7 @@ return [
       // This can't be a string (only works like this) (need to figure out why)
       "model" => \App\Models\Admin::class
     ],
+    //////////////////////////////////////////// Seetings /////////////////////////////////////////////
     [
       "label" => "Settings",
       "icon"  => "settings",
@@ -43,6 +46,7 @@ return [
       "can"   => "update",
       "model" => \App\Models\Setting::class
     ],
+    /////////////////////////////////////////////////////// Countries /////////////////////////////////////
     [
       "label" => "Country",
       "icon"  => "settings",
@@ -66,6 +70,7 @@ return [
             ],
       ],
     ],
+    //////////////////////////////////////////////// Cities /////////////////////////////////////////////
     [
       "label" => "City",
       "icon"  => "settings",
@@ -88,6 +93,31 @@ return [
             "model" => \App\Models\Country::class,
             ],
       ],
-    ]
+    ],
+    ///////////////////////////////////////////// Category /////////////////////////////////////////////
+    [
+      "label" => "Categories",
+      "icon"  => "settings",
+      
+      // "can"   => "update",
+      "model" => \App\Models\Category::class,
+      "submenu" => [
+            [            
+            "label" => "Add New Category",
+            "icon"  => "settings",
+            "route" => "admin.category.create",
+            // "can"   => "update",
+            "model" => \App\Models\Category::class,
+            ],
+            [            
+            "label" => "All Categories",
+            "icon"  => "settings",
+            "route" => "admin.category.index",
+            // "can"   => "update",
+            "model" => \App\Models\Category::class,
+            ],
+      ],
+    ],
+    //////////////////////////////////////////////////////////////////////////////////////////////
   ]
 ];
