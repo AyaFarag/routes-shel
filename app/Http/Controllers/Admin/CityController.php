@@ -17,10 +17,16 @@ class CityController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         // $city = City::paginate();
         $city = City::orderBy('id','desc')->get();
         
         return view('Admin.city.index', compact('city'));
+=======
+        $city = City::paginate();
+
+        return view('Admin.city.index');
+>>>>>>> refs/remotes/origin/countries_cities
     }
 
     /**
