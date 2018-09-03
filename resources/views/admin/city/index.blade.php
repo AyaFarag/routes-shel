@@ -19,8 +19,12 @@
           "model"         => \App\Models\City::class,
           "columns"       => [
             "name"  => ["label" => "City Name"],
-            $city->country->name  => ["label" => "Country"],
-            
+            "country"  => [
+              "label" => "Country",
+              "transform" => function($value, $city){
+                return $city->country->name;
+              } 
+              ],
           ]
         ])
       </div>
