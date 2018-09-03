@@ -18,7 +18,8 @@
           "items"         => $city,
           "model"         => \App\Models\City::class,
           "columns"       => [
-            "name"  => ["label" => "Name"],
+            "name"  => ["label" => "City Name"],
+            $city->country->name  => ["label" => "Country"],
             
           ]
         ])
