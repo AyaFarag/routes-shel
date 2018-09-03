@@ -11,6 +11,6 @@ class Country extends Model
     ];
 
     public function city() {
-        return $this -> hasMany(City::class);
+        return $this -> hasMany(City::class , 'country_id');
     }
 }
