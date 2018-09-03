@@ -17,9 +17,10 @@ class CityController extends Controller
      */
     public function index()
     {
-        $city = City::paginate();
+        // $city = City::paginate();
+        $city = City::orderBy('id','desc')->get();
         
-        return view('Admin.city.index');
+        return view('Admin.city.index', compact('city'));
     }
 
     /**
@@ -29,8 +30,8 @@ class CityController extends Controller
      */
     public function create()
     {
-        $country = Country::pluck('id','name')->get();
-        return view('Admin.city.Create', compact('city','country'));
+        $countries = Country::pluck('name','id')->all();
+        return view('Admin.city.Create', compact('countries'));
     }
 
     /**
