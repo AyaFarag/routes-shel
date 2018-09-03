@@ -17,8 +17,8 @@ class CityController extends Controller
      */
     public function index()
     {
-        // $city = City::paginate();
-        $city = City::get();
+        $city = City::paginate();
+        // $city = City::get();
 
         return view('Admin.city.index', compact('city'));
     }
@@ -63,9 +63,9 @@ class CityController extends Controller
      * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function edit(City $city)
+    public function edit(City $city , Category $country)
     {
-        return view('Admin.city.edit', compact('city'));
+        return view('Admin.city.edit', compact('city','country'));
     }
 
     /**
