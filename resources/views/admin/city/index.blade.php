@@ -23,9 +23,9 @@
               "label" => "Country",
               "transform" => function($value, $city){
                 return $city->country->name;
-              },
-            ],
-            
+              } 
+              ],
+
           ]
         ])
       </div>
