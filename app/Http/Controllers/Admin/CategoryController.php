@@ -17,7 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::paginate();
-        return view('Admin.category.index' , compact('category'));
+        return view('admin.category.index' , compact('category'));
     }
 
     /**
@@ -28,7 +28,7 @@ class CategoryController extends Controller
     public function create()
     {
         $categories = Category::where('parent_id', null)->pluck('name','id')->all();
-        return view('Admin.category.create', compact('categories'));
+        return view('admin.category.create', compact('categories'));
     }
 
     /**
@@ -63,7 +63,7 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         $categories = Category::where('parent_id', null)->pluck('name','id')->all();
-        return view('Admin.category.edit' ,compact('categories' ,'category'));
+        return view('admin.category.edit' ,compact('categories' ,'category'));
     }
 
     /**
