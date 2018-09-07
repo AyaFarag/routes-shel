@@ -18,8 +18,6 @@ class CityController extends Controller
     public function index()
     {
         $city = City::paginate();
-        // $city = City::get();
-
         return view('Admin.city.index', compact('city'));
     }
 
