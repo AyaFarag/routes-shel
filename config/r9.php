@@ -42,6 +42,52 @@ return [
       "route" => "admin.setting.edit",
       "can"   => "update",
       "model" => \App\Models\Setting::class
+    ],
+    [
+      "label" => "Country",
+      "icon"  => "settings",
+      "route" => "admin.country.create",
+      // "can"   => "update",
+      "model" => \App\Models\Country::class,
+      "submenu" => [
+            [            
+            "label" => "Add New Country",
+            "icon"  => "settings",
+            "route" => "admin.country.create",
+            // "can"   => "update",
+            "model" => \App\Models\Country::class,
+            ],
+            [            
+            "label" => "All Countries",
+            "icon"  => "settings",
+            "route" => "admin.country.index",
+            // "can"   => "update",
+            "model" => \App\Models\Country::class,
+            ],
+      ],
+    ],
+    [
+      "label" => "City",
+      "icon"  => "settings",
+      
+      // "can"   => "update",
+      "model" => \App\Models\City::class,
+      "submenu" => [
+            [            
+            "label" => "Add New City",
+            "icon"  => "settings",
+            "route" => "admin.city.create",
+            // "can"   => "update",
+            "model" => \App\Models\Country::class,
+            ],
+            [            
+            "label" => "All Cities",
+            "icon"  => "settings",
+            "route" => "admin.city.index",
+            // "can"   => "update",
+            "model" => \App\Models\Country::class,
+            ],
+      ],
     ]
   ]
 ];
