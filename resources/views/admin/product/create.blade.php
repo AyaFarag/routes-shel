@@ -10,7 +10,7 @@
       <div class="card-content">
         @component("admin.components.form", [
           "method" => "post",
-          "enctype=" => "multipart/form-data",
+          "enctype" => "multipart/form-data",
           "action" => route("admin.product.store")
         ])
           @include("admin.product.form")

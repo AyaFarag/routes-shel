@@ -23,8 +23,8 @@
               "label" => "Category",
               "transform" => function($value, $category){
                 return $product->category->name;
-              } 
-              ],
+              }
+            ],
           ]
         ])
       </div>
