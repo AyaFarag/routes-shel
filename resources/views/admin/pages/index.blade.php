@@ -18,7 +18,7 @@
           "items"         => $page,
           "model"         => \App\Models\Page::class,
           "columns"       => [
-            "name"  => ["label" => "Page Name"],
+            "title"  => ["label" => "Page Name"],
             
           ]
         ])

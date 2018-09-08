@@ -25,6 +25,7 @@
                 return $city->country->name;
               } 
               ],
+
           ]
         ])
       </div>

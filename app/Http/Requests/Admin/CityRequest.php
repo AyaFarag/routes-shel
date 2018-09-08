@@ -25,6 +25,7 @@ class CityRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'country_id' => 'required|exists:countries,id'
         ];
     }
 }
