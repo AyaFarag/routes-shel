@@ -11,17 +11,19 @@
   "old"  => isset($product) ? $product -> price : ""
 ])
 {{--  description  --}}
-@include("admin.components.input", [
+@include("admin.components.textarea", [
   "name" => "description",
   "label" => "description",
-  "old"  => isset($product) ? $product -> description : ""
+  "rows" => 7,
+  "oldValue"  => isset($product) ? $product -> description : ""
 ])
 {{--  images  --}}
 @include("admin.components.input", [
   "label" => "images",
-  "multiple" => "multiple",
-  "name" => "images[]",
+  "multiple" => true,
+  "name" => "images",
   "type" => "file",
+  "attributes" => ["multiple" => "multiple"],
   "old"  => isset($product) ? $product -> images : ""
 ])
 {{--  quantity  --}}
