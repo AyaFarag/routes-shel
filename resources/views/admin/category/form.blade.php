@@ -10,9 +10,5 @@
   "options" => $categories,
   "old" => isset($category) ? $category -> parent_id : "",
   "label" => "Parent Category",
-  "class" => "removable-select-input-select margin-top big"
+  "class" => "removable-select-input-select"
 ])
-
-<div>
-
-</div>
