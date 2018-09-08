@@ -28,6 +28,7 @@ class ProductController extends Controller
      */
     public function create(Category $category)
     {
+        $category = Category::pluck('name','id')->all();
         return view('Admin.product.create', compact('category'));
     }
 
@@ -43,20 +44,6 @@ class ProductController extends Controller
         $product['images'] = ltrim($request->file('images')->store('public/uploads'), 'public/');
         Product::create($product);
         return back()->with('success','Saved');
-
-        //////////////////////////////////////////////////////////////////////////////////////////
-        // $product = $request->all();
-        // $images=array();
-        // if($request->hasFile('images')){
-        //        $images = $request->file('images');
-        //         $name = time() . '.' . $images->getClientOriginalExtension();
-        //         $location = $images->move(public_path('uploads'), $imgname);
-        //         $images[] = $name;
-        //         $product->images = $name;
-        //     }
-        //     // dd($input);
-        //     $product->save();
-        // return back()->with('success','Saved');
     }
 
     /**
@@ -78,7 +65,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('Admin.product.edit', compact('product'));
+        $category = Category::pluck('name','id')->all();
+        return view('Admin.product.edit', compact('product','category'));
     }
 
     /**
@@ -88,19 +76,12 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, Product $product)
+    public function update(Request $request, Product $product)
     {
-        $input=$request->all();
-        $images=array();
-        if($images = $request->file('image')){
-            foreach($images as $image){
-                $name = time() . '.' . $image->getClientOriginalExtension();
-                $location = $image->move(public_path('uploads'), $imgname);
-                $images[] = $name;
-                $input->images = $name;
-                $input->save();
-            }
-        }
+        $product = $request->all();
+        $product['images'] = ltrim($request->file('images')->store('public/uploads'), 'public/');
+        dd($product);
+        $product->update($product);
         return back()->with('success','Saved');
     }
 
