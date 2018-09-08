@@ -26,9 +26,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Category $category)
+    public function create()
     {
-        return view('Admin.product.create', compact('category'));
+        $categories = Category::areChildren() -> pluck("name", "id") -> all();
+        return view('Admin.product.create', compact('categories'));
     }
 
     /**

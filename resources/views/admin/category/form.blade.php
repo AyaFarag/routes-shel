@@ -1,15 +1,16 @@
 @include("admin.components.input", [
   "name" => "name",
-  "label" => "category",
+  "label" => "Name",
   "old"  => isset($category) ? $category -> name : "",
- 
+
 ])
 
 @include("admin.components.select", [
   "name" => "parent_id",
   "options" => $categories,
-  "label" => "Categories",
-  "class" => "removable-select-input-select"
+  "old" => isset($category) ? $category -> parent_id : "",
+  "label" => "Parent Category",
+  "class" => "removable-select-input-select margin-top big"
 ])
 
 <div>

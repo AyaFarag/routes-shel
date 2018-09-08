@@ -2,7 +2,7 @@
   @component("admin.components.form", [
     "method" => "get",
     "action" => $route,
-    "class"  => "flex align-center navbar-search lighten-1 " . config("r9")["colors"]["primary-name"],
+    "class"  => "flex align-center navbar-search lighten-1 " . config("sidebar-menu")["colors"]["primary-name"],
     "noCsrf" => true
   ])
     @include("admin.components.rounded-button", [
