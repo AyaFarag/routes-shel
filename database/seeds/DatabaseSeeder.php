@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             PagesSeeder::class,
             ProductSeeder::class,
             OfferSeeder::class,
+            AddressSeeder::class,
+            PaymentSeeder::class,
+            OrderSeeder::class,
         ]);
      
     }
