@@ -126,7 +126,7 @@ return [
         // "can"   => "update",
         "model" => \App\Models\Page::class
       ],
-    //////////////////////////////////////////////// products /////////////////////////////////////////////////////////
+    //////////////////////////////////////////////// products /////////////////////////////////////////////
       [
         "label" => "Products",
         "icon"  => "settings",
@@ -147,6 +147,31 @@ return [
                 "route" => "admin.product.index",
                 // "can"   => "update",
                 "model" => \App\Models\Product::class,
+                ],
+            ],
+        
+      ],
+      ////////////////////////////////////////////// Offers ////////////////////////////////////////////
+      [
+        "label" => "Product Offers",
+        "icon"  => "settings",
+        "route" => "admin.offer.index",
+        // "can"   => "update",
+        "model" => \App\Models\Offer::class,
+        "submenu" => [
+                [            
+                "label" => "Add New Offer",
+                "icon"  => "settings",
+                "route" => "admin.offer.create",
+                // "can"   => "update",
+                "model" => \App\Models\Offer::class,
+                ],
+                [            
+                "label" => "All Offers",
+                "icon"  => "settings",
+                "route" => "admin.offer.index",
+                // "can"   => "update",
+                "model" => \App\Models\Offer::class,
                 ],
             ],
         
