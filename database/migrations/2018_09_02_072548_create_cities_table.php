@@ -18,6 +18,8 @@ class CreateCitiesTable extends Migration
             $table->string('name');
             $table->string('shipping_cost');
             $table->string('delivery_date');
+            $table->integer('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
             $table->timestamps();
         });
     }
