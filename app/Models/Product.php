@@ -29,4 +29,8 @@ class Product extends Model
     public function offer() {
         return $this -> hasOne(Offer::class);
     }
+
+    public function cart() {
+        return $this -> hasMany(Cart::class );
+    }
 }
