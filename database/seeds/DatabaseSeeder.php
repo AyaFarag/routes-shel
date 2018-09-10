@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             Request_ServiceSeeder::class,
             Order_ProductSeeder::class,
+            CartSeeder::class,
         ]);
      
     }
