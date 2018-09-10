@@ -18,8 +18,8 @@ class CreateRatesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->integer('products_id')->unsigned();
-            $table->foreign('products_id')->references('id')->on('products')->onDelete('cascade');
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
 
             $table->tinyInteger('rate');
             $table->string('comment');

@@ -6,7 +6,7 @@ use App\Models\Product as Product;
 
 $factory->define(Offer::class, function (Faker $faker) {
     return [
-        "discount" => 40,
+        "discount" => $faker->randomNumber(2),
         'product_id' => function () {
             if (Product::count() < 1) {
                 return factory(Product::class)->create()->id;

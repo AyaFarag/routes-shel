@@ -14,7 +14,7 @@ $factory->define(City::class, function (Faker $faker) {
                 return Country::inRandomOrder()->first()->id;
             }
         },
-        "shipping_cost" => 40,
+        "shipping_cost" => $faker->randomNumber(2),
         "delivery_date" => $faker->date,
 
     ];

@@ -29,7 +29,7 @@ $factory->define(Order::class, function (Faker $faker) {
                 return Payment::inRandomOrder()->first()->id;
             }
         },
-        "shipping_cost" => $faker->randomDigit,
+        "shipping_cost" => $faker->randomNumber(2),
         
     ];
 });

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRequestsServicesTable extends Migration
+class CreateRequestServiceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRequestsServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('requests_services', function (Blueprint $table) {
+        Schema::create('request_service', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('request_id')->unsigned();
             $table->foreign('request_id')->references('id')->on('requests')->onDelete('cascade');
