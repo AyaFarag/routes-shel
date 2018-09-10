@@ -22,7 +22,7 @@ class CreateRatesTable extends Migration
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
 
             $table->tinyInteger('rate');
-            $table->string('comment');
+            $table->text('comment');
             $table->boolean('status')->default(true);
             
             $table->timestamps();
