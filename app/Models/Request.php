@@ -17,4 +17,9 @@ class Request extends Model
     public function user() {
         return $this -> belongsTo(User::class );
     }
+
+    public function service()
+    {
+        return $this->belongsToMany(Service::class);
+    }
 }

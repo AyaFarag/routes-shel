@@ -15,6 +15,11 @@ class CreateRequestsServicesTable extends Migration
     {
         Schema::create('requests_services', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('request_id')->unsigned();
+            $table->foreign('request_id')->references('id')->on('requests')->onDelete('cascade');
+
+            $table->integer('service_id')->unsigned();
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->timestamps();
         });
     }
