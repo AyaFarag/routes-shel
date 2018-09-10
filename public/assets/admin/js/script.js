@@ -5,6 +5,9 @@ $(document).ready(function(){
   $(".modal").modal();
   $("select").formSelect();
   $(".tap-target").tapTarget();
+  $('.datepicker').datepicker({
+    format  : "dd/mm/yyyy"
+  });
   if (!localStorage.getItem("feature-discovery-add")) {
     setTimeout(function () {
       localStorage.setItem("feature-discovery-add", true);

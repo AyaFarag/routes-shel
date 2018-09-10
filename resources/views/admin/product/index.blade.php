@@ -21,7 +21,7 @@
             "name"  => ["label" => "Name"],
             "category"  => [
               "label" => "Category",
-              "transform" => function($value, $category){
+              "transform" => function($value, $product){
                 return $product->category->name;
               }
             ],

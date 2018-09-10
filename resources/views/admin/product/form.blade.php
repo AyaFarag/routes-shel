@@ -11,7 +11,7 @@
   "old"  => isset($product) ? $product -> price : ""
 ])
 {{--  description  --}}
-@include("admin.components.input", [
+@include("admin.components.textarea", [
   "name" => "description",
   "label" => "Description",
   "old"  => isset($product) ? $product -> description : ""
