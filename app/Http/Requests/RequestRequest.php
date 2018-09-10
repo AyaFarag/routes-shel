@@ -28,7 +28,7 @@ class RequestRequest extends FormRequest
             "lat" => "required",
             "lang" => "required",
             "size" => "required",
-            "images" => "required",
+            'images' => 'required|max:5',
             "address" => "required",
         ];
     }
