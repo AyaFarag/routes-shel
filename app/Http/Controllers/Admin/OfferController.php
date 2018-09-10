@@ -76,7 +76,7 @@ class OfferController extends Controller
     public function update(Request $request, Offer $offer)
     {
         $offer->update($request->all());
-        return view('admin.offer.index')->with('success', 'updated');
+        return view('Admin.offer.index')->with('success', 'updated');
     }
 
     /**
