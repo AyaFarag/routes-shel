@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Request;
+use App\Models\Request as RequestModel;
 use Illuminate\Http\Request;
 
 class RequestController extends Controller
