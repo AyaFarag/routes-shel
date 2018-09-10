@@ -25,8 +25,8 @@ class RequestRequest extends FormRequest
     {
         return [
             "user_id" => "required",
-            "lat" => "required",
-            "lang" => "required",
+            "lat" => "required|integer",
+            "lang" => "required|integer",
             "size" => "required",
             'images' => 'required|max:5',
             "address" => "required",

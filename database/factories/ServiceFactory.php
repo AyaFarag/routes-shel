@@ -1,9 +1,11 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Models\Service as Service;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Service::class, function (Faker $faker) {
     return [
-        //
+        'title' => $faker->title,
+        'description' => $faker->text,
     ];
 });
