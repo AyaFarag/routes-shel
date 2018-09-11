@@ -10,8 +10,3 @@
   "name" => "name",
   "old"  => isset($city) ? $city -> name : ""
 ])
-
-
-<div>
-
-</div>

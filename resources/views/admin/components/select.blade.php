@@ -1,6 +1,7 @@
 <div class="input-field{{ isset($class) ? " $class" : "" }}">
     <select
         @if (isset($name)) name="{{ $name }}" @endif
+        @if ($errors -> has($name)) class="invalid" @endif
     >
         <option value="" disabled selected>Choose your option</option>
         @foreach ($options as $option => $title)
@@ -15,4 +16,7 @@
         @endforeach
     </select>
     <label>{{ $label }}</label>
+    @if ($errors -> has($name))
+        <span class="helper-text is-danger">{{ $errors -> first($name) }}</span>
+    @endif
 </div>
