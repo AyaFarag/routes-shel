@@ -18,8 +18,6 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name');
             NestedSet::columns($table);
-            $table->integer('parent_id')->unsigned()->nullable();
-            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
