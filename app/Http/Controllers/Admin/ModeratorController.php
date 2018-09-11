@@ -26,14 +26,14 @@ class ModeratorController extends Controller
 
         $moderators = $moderators -> paginate();
 
-        return view("admin.moderator.index", compact("moderators"));
+        return view("Admin.moderator.index", compact("moderators"));
     }
 
     public function create()
     {
         $this -> authorize("create", Admin::class);
 
-        return view("admin.moderator.create");
+        return view("Admin.moderator.create");
     }
 
     public function store(ModeratorRequest $request)
@@ -53,7 +53,7 @@ class ModeratorController extends Controller
     {
         $this -> authorize("update", Admin::class);
 
-        return view("admin.moderator.edit", compact("moderator"));
+        return view("Admin.moderator.edit", compact("moderator"));
     }
 
     public function update(ModeratorRequest $request, Admin $moderator)

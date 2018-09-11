@@ -5,9 +5,13 @@
   <input
     id="{{ $name }}"
     name="{{ $name }}"
-    type="{{ empty($type) ? 'text' : $type }}"
+    @if (!empty($type) && strtolower($type) === 'date')
+      type="text"
+    @else
+      type="{{ empty($type) ? 'text' : $type }}"
+    @endif
     autocomplete="off"
-    class="{{ isset($class) ? $class : '' }}{{ $errors -> has($trimmed_input_name) ? 'invalid' : '' }}"
+    class="{{ isset($class) ? $class : '' }}{{ $errors -> has($trimmed_input_name) ? 'invalid' : '' }}{{ !empty($type) && strtolower($type) === 'date' ? ' datepicker' : '' }}"
     value="{{
       !empty($old)
         ? $old

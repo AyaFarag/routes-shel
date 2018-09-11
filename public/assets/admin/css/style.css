@@ -294,7 +294,13 @@ nav .navbar-search input[type=text]:not(.browser-default):focus:not([readonly]) 
   color : #F00;
 }
 
+.input-field {
+  margin : 1.5rem 0;
+}
 
+textarea.materialize-textarea{
+  height: 6rem;
+}
 
 /****************************************
 *****************************************

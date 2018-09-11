@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCountryIdToCities extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddCountryIdToCities extends Migration
      */
     public function up()
     {
-        Schema::table('cities', function (Blueprint $table) {
-            $table->integer('country_id')->unsigned();
-            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+        Schema::create('payments', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->boolean('status')->default(false);
+            $table->timestamps();
         });
     }
 
@@ -26,8 +28,6 @@ class AddCountryIdToCities extends Migration
      */
     public function down()
     {
-        Schema::table('cities', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('payments');
     }
 }

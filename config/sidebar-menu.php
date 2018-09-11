@@ -126,5 +126,55 @@ return [
         // "can"   => "update",
         "model" => \App\Models\Page::class
       ],
+    //////////////////////////////////////////////// products /////////////////////////////////////////////
+      [
+        "label" => "Products",
+        "icon"  => "settings",
+        "route" => "admin.product.index",
+        // "can"   => "update",
+        "model" => \App\Models\Product::class,
+        "submenu" => [
+                [            
+                "label" => "Add New Product",
+                "icon"  => "settings",
+                "route" => "admin.product.create",
+                // "can"   => "update",
+                "model" => \App\Models\Product::class,
+                ],
+                [            
+                "label" => "All products",
+                "icon"  => "settings",
+                "route" => "admin.product.index",
+                // "can"   => "update",
+                "model" => \App\Models\Product::class,
+                ],
+            ],
+        
+      ],
+      ////////////////////////////////////////////// Offers ////////////////////////////////////////////
+      [
+        "label" => "Product Offers",
+        "icon"  => "settings",
+        "route" => "admin.offer.index",
+        // "can"   => "update",
+        "model" => \App\Models\Offer::class,
+        "submenu" => [
+                [            
+                "label" => "Add New Offer",
+                "icon"  => "settings",
+                "route" => "admin.offer.create",
+                // "can"   => "update",
+                "model" => \App\Models\Offer::class,
+                ],
+                [            
+                "label" => "All Offers",
+                "icon"  => "settings",
+                "route" => "admin.offer.index",
+                // "can"   => "update",
+                "model" => \App\Models\Offer::class,
+                ],
+            ],
+        
+      ],
   ]
 ];
