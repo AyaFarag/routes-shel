@@ -20,7 +20,6 @@
 {{--  images  --}}
 @include("admin.components.input", [
   "label" => "images",
-  "multiple" => true,
   "name" => "images",
   "type" => "file",
   "attributes" => ["multiple" => "multiple"],
