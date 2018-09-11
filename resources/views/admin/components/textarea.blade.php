@@ -18,6 +18,7 @@
     autocomplete="off"
     class="materialize-textarea{{ isset($class) ? " $class" : '' }}{{ $errors -> has($trimmed_input_name) ? 'invalid' : '' }}"
     value="{{ $oldValue }}"
+    rows="{{ $rows }}"
     @if (isset($attributes))
       @foreach ($attributes as $attribute => $attribute_value)
         {{ $attribute }}="{{ $attribute_value }}"

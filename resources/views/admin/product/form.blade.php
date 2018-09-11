@@ -13,8 +13,18 @@
 {{--  description  --}}
 @include("admin.components.textarea", [
   "name" => "description",
-  "label" => "Description",
-  "old"  => isset($product) ? $product -> description : ""
+  "label" => "description",
+  "rows" => 7,
+  "oldValue"  => isset($product) ? $product -> description : ""
+])
+{{--  images  --}}
+@include("admin.components.input", [
+  "label" => "images",
+  "multiple" => true,
+  "name" => "images",
+  "type" => "file",
+  "attributes" => ["multiple" => "multiple"],
+  "old"  => isset($product) ? $product -> images : ""
 ])
 {{--  quantity  --}}
 @include("admin.components.input", [

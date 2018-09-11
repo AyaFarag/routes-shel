@@ -26,14 +26,14 @@ class UserController extends Controller
 
         $users = $users -> latest() -> paginate();
 
-        return view("admin.user.index", compact("users"));
+        return view("Admin.user.index", compact("users"));
     }
 
     public function create()
     {
         $this -> authorize("create", User::class);
 
-        return view("admin.user.create");
+        return view("Admin.user.create");
     }
 
     public function store(UserRequest $request)
@@ -55,7 +55,7 @@ class UserController extends Controller
     {
         $this -> authorize("update", User::class);
 
-        return view("admin.user.edit", compact("user"));
+        return view("Admin.user.edit", compact("user"));
     }
 
     public function update(UserRequest $request, User $user)

@@ -39,4 +39,20 @@ class User extends Authenticatable
     public function phones() {
         return $this -> hasMany(UserPhone::class);
     }
+
+    public function address() {
+        return $this -> hasMany(Address::class);
+    }
+
+    public function order() {
+        return $this -> hasMany(Order::class );
+    }
+  
+    public function request() {
+        return $this -> hasMany(Request::class );
+    }
+    
+    public function cart() {
+        return $this -> hasOne(Cart::class );
+    }
 }

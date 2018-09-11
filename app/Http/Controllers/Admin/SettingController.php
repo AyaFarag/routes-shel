@@ -18,7 +18,7 @@ class SettingController extends Controller
 
         $setting = Setting::first();
 
-        return view("admin.setting.edit", compact("setting"));
+        return view("Admin.setting.edit", compact("setting"));
     }
 
     public function update(SettingRequest $request) {
