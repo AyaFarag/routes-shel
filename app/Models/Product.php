@@ -23,6 +23,14 @@ class Product extends Model
     ];
 
     public function category() {
-        return $this -> belongsTo(Category::class );
+        return $this -> belongsTo(Category::class ,'category_id');
+    }
+
+    public function offer() {
+        return $this -> hasOne(Offer::class);
+    }
+
+    public function cart() {
+        return $this -> hasMany(Cart::class );
     }
 }

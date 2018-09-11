@@ -19,7 +19,7 @@ class CountryController extends Controller
     {
         $country = Country::paginate();
         
-        return view('admin.country.index', compact('country'));
+        return view('Admin.country.index', compact('country'));
     }
 
     /**
@@ -29,7 +29,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-        return view('admin.country.create');
+        return view('Admin.country.create');
     }
 
     /**
@@ -63,7 +63,7 @@ class CountryController extends Controller
      */
     public function edit(Country $country)
     {
-        return view('admin.country.edit', compact('country'));
+        return view('Admin.country.edit', compact('country'));
     }
 
     /**
@@ -76,7 +76,7 @@ class CountryController extends Controller
     public function update(CountryRequest $request, Country $country)
     {
         $country->update($request->all());
-        return view('admin.country.index', compact('country') );
+        return view('Admin.country.index', compact('country') );
     }
 
     /**
